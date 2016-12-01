@@ -1,0 +1,25 @@
+{
+	"address": ":32764",
+	"tls": {
+    "address": ":32765",
+		"auto": true,
+		"cache_file": "/etc/armor/le.cache"
+	},
+	"plugins": [{
+		"name": "logger"
+	}],
+	"hosts": {
+		"ttv.rew.to:32764": {
+			"paths": {
+				"/": {
+					"plugins": [{
+						"name": "proxy",
+						"targets": [{
+							"url": "http://aceproxy:8000"
+						}]
+					}]
+				}
+			}
+		}
+	}
+}

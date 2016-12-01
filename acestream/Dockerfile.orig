@@ -1,0 +1,12 @@
+FROM ubuntu:precise
+
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && apt-get update \
+  && apt-get -y install --no-install-recommends wget ca-certificates \
+  && echo 'deb http://repo.acestream.org/ubuntu/ precise main' > /etc/apt/sources.list.d/acestream.list \
+  && wget -q -O - http://repo.acestream.org/keys/acestream.public.key | apt-key add - \
+  && apt-get update \
+  && apt-get -y install --no-install-recommends acestream-engine python-pkg-resources \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["acestreamengine"]

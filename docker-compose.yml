@@ -1,0 +1,61 @@
+version: '2'
+
+services:
+  acestream:
+    build: acestream
+    ports:
+      - "8621:8621"
+    command: |
+      --bind-all
+      --client-console
+      --live-buffer 30
+      --max-connections 400
+      --max-peers 200
+      --live-cache-type memory
+      --live-mem-cache-size 536870912
+    networks:
+      - back-tier
+    # cap_add:
+    #   - SYS_ADMIN
+    restart: unless-stopped
+
+  vlc:
+    build: vlc
+    command: |
+      -I telnet
+      --clock-jitter 0
+      --network-caching 500
+      --sout-mux-caching 2000
+      --telnet-password admin
+      --telnet-host 0.0.0.0
+    networks:
+      - back-tier
+    restart: unless-stopped
+
+  aceproxy:
+    build: aceproxy
+    depends_on:
+      - acestream
+      - vlc
+    # ports:
+    #   - "32764:8000"
+    networks:
+      - front-tier
+      - back-tier
+    restart: unless-stopped
+
+  front:
+    image: labstack/armor
+    ports:
+      - "32764-32765:32764-32765"
+      # - "32764:32764"
+    volumes:
+      - .conf/front:/etc/armor
+    command: -c /etc/armor/config.json
+    networks:
+      - front-tier
+    restart: unless-stopped
+
+networks:
+  front-tier:
+  back-tier:

@@ -1,0 +1,25 @@
+{
+	"Email": "",
+	"Reg": {
+		"body": {
+			"resource": "reg",
+			"id": 6743276,
+			"key": {
+				"kty": "EC",
+				"crv": "P-384",
+				"x": "9Ds28ngTb2JWwSwBaMPEkwJnQwnaQXu7J5KtI90qsFUhyw4zWQujDXUfhx6I6prn",
+				"y": "aVC5mE9-iM9O8cN2cT2IwmlC3OkUOLHFM0X28F29Mx45b6MU7nL2adcmU4iwgHBy"
+			},
+			"contact": [],
+			"agreement": "https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf"
+		},
+		"uri": "https://acme-v01.api.letsencrypt.org/acme/reg/6743276",
+		"new_authzr_uri": "https://acme-v01.api.letsencrypt.org/acme/new-authz",
+		"terms_of_service": "https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf"
+	},
+	"Key": "-----BEGIN EC PRIVATE KEY-----\nMIGkAgEBBDAhtXl2isNxJzpHPj+f6emWefLl72vVJPF9YxwgZETbPE52FYo5uSqn\nKYa8xNAxJSygBwYFK4EEACKhZANiAAT0OzbyeBNvYlbBLAFow8STAmdDCdpBe7sn\nkq0j3SqwVSHLDjNZC6MNdR+HHojqmudpULmYT36Iz07xw3ZxPYjCaULc6RQ4scUz\nRfbwXb0zHjlvoxTucvZp1yZTiLCAcHI=\n-----END EC PRIVATE KEY-----\n",
+	"Hosts": [
+		"xz1.fs.ai"
+	],
+	"Certs": null
+}
